@@ -1,0 +1,15 @@
+{
+  "displayName": "QRScanner",
+  "defaultWidth": 160,
+  "defaultHeight": 24,
+  "components": "./index.js",
+  "icon": "./example-thumbnail.png",
+  "props": [
+    {
+      "name": "name",
+      "displayName": "Name",
+      "type": "text",
+      "default": "wikipedia.org/wiki/QR_code"
+    }
+  ]
+}
