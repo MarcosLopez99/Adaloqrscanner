@@ -4,18 +4,32 @@
   "defaultHeight": 600,
   "components": "./index.js",
   "icon": "./example-thumbnail.png",
+  "resizeX": true,
+  "resizeY": true,
   "props": [
+
+  ],
+  "childComponents": [
     {
-      "name": "cameraHeight",
-      "displayName": "Height",
-      "type": "number",
-      "default": 400
-    },
-    {
-      "name": "cameraWidth",
-      "displayName": "Width",
-      "type": "number",
-      "default": 315
+      "name": "actions",
+      "displayName": "Actions",
+      "props": [
+        {
+          "name": "useActions",
+          "displayName": "Read Actions",
+          "type": "action",
+          "arguments": [
+            {
+              "type": "text",
+              "displayName": "data"
+            },
+            {
+              "type": "text",
+              "displayName": "rawData"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

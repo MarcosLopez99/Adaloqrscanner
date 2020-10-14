@@ -1,47 +1,42 @@
 import React, { Component } from 'react'
 
 import {
-	StyleSheet,
-	Linking,
+	StyleSheet
 } from 'react-native';
 
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { RNCamera } from 'react-native-camera'
 
 class QRScanner extends Component {
-	onSuccess = e => {
-		Linking.openURL(e.data).catch(err =>
-			console.error('An error occured', err)
-		);
-	};
-	render() {
-		const {cameraHeight, cameraWidth} = this.props
 
+	onSuccess = async (value) => {
+		const { actions } = this.props
+
+		const qrData = value.data
+		const qrRawData = value.rawData
+
+		console.log(qrRawData);
+		console.log(qrData);
+
+		if (actions.useActions) await actions.useActions(qrData, qrRawData)
+	};
+
+	render() {
 		return (
 			<QRCodeScanner
 				onRead={this.onSuccess}
 				flashMode={RNCamera.Constants.FlashMode.off}
-				containerStyle={styles.container}
-				cameraStyle={{height: '100%', width: '100%'}}
+				containerStyle={styles.resize}
+				cameraStyle={styles.resize}
 			/>
 		)
 	}
 }
 
 const styles = StyleSheet.create({
-	container: {
+	resize: {
 		height: '100%',
-		width: '100%'
-	},
-	centerText: {
-		flex: 1,
-		fontSize: 18,
-		padding: 32,
-		color: '#777'
-	},
-	textBold: {
-		fontWeight: '500',
-		color: '#000'
+		width: '100%',
 	}
 })
 
