@@ -15,9 +15,6 @@ class QRScanner extends Component {
 		const qrData = value.data
 		const qrRawData = value.rawData
 
-		console.log(qrRawData);
-		console.log(qrData);
-
 		if (actions.useActions) await actions.useActions(qrData, qrRawData)
 	};
 
