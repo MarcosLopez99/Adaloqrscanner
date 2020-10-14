@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 import {
 	StyleSheet,
-	Text,
 	Linking,
 } from 'react-native';
 
@@ -16,24 +15,24 @@ class QRScanner extends Component {
 		);
 	};
 	render() {
-		const { name } = this.props
+		const {cameraHeight, cameraWidth} = this.props
 
 		return (
 			<QRCodeScanner
 				onRead={this.onSuccess}
 				flashMode={RNCamera.Constants.FlashMode.off}
-				topContent={
-					<Text style={styles.centerText}>
-						Go to{' '}
-						<Text style={styles.textBold}>{name}</Text> on
-        				your computer and scan the QR code.
-					</Text>
-				} />
+				containerStyle={styles.container}
+				cameraStyle={{height: '100%', width: '100%'}}
+			/>
 		)
 	}
 }
 
 const styles = StyleSheet.create({
+	container: {
+		height: '100%',
+		width: '100%'
+	},
 	centerText: {
 		flex: 1,
 		fontSize: 18,

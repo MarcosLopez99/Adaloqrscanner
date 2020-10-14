@@ -1,15 +1,21 @@
 {
   "displayName": "QRScanner",
-  "defaultWidth": 160,
-  "defaultHeight": 24,
+  "defaultWidth": 330,
+  "defaultHeight": 600,
   "components": "./index.js",
   "icon": "./example-thumbnail.png",
   "props": [
     {
-      "name": "name",
-      "displayName": "Name",
-      "type": "text",
-      "default": "wikipedia.org/wiki/QR_code"
+      "name": "cameraHeight",
+      "displayName": "Height",
+      "type": "number",
+      "default": 400
+    },
+    {
+      "name": "cameraWidth",
+      "displayName": "Width",
+      "type": "number",
+      "default": 315
     }
   ]
 }
